@@ -10,9 +10,15 @@ public class Customer {
         Scanner sc = new Scanner(System.in);
         System.out.print("Nhập tên: ");
         name = sc.nextLine();
+        name = name.toLowerCase();
         name = vietHoaTen(name);
-        System.out.print("Nhập tuổi: ");
-        age = sc.nextInt();
+        do {
+            System.out.print("Nhập tuổi: ");
+            age = sc.nextInt();
+            if (age <= 0) {
+                System.out.println("Lỗi");
+            }
+        } while (age <= 0);
     }
 
     public static void hienThiInfo() {
@@ -33,7 +39,7 @@ public class Customer {
             }
         }
         ten = "";
-        for (int i=0; i<arr.length; i++){
+        for (int i = 0; i < arr.length; i++) {
             ten += arr[i];
         }
         return ten;

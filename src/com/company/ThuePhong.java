@@ -1,12 +1,14 @@
 package com.company;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class ThuePhong {
     private final static int VILLA = 10, HOUSE = 5;
     private final static int GIUONGVILLA = 1, GIUONGHOUSE = 4;
     private static int soNgay, tien;
-    private static String kieuThue = "chưa xác định";
+    private static String kieuThue = "chưa xác định", thoiDiemThue = "chưa xác định";
 
     public static void traCuuCanHo() {
         System.out.println("Loại hình thuê: Villa, mỗi phòng có: " + GIUONGVILLA + " giường, giá tiền: " + VILLA + "$/h");
@@ -23,6 +25,9 @@ public class ThuePhong {
             else System.out.println("Ko hợp lệ");
         } while (true);
         tien = soNgay * VILLA;
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm dd/MM/yyyy");
+        thoiDiemThue = formatter.format(date);
         return tien;
     }
 
@@ -36,6 +41,9 @@ public class ThuePhong {
             else System.out.println("Ko hợp lệ");
         } while (true);
         tien = soNgay * HOUSE;
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm dd/MM/yyyy");
+        thoiDiemThue = formatter.format(date);
         return tien;
     }
 
@@ -70,5 +78,6 @@ public class ThuePhong {
 
     public static void thongTinThuePhong() {
         System.out.println("Loại hình muốn thuê: " + kieuThue + ", thời gian thuê: " + soNgay + " ngày, số tiền phải trả: " + tien + "$");
+        System.out.println("Thời điểm thuê: " + thoiDiemThue);
     }
 }

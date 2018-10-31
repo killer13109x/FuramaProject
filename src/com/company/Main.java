@@ -55,6 +55,7 @@ public class Main {
                     thuePhong.traCuuCanHo();
                     break;
                 case 4:
+                    swimmingPool.displayOpenTime();
                     swimmingPool.goSwimming();
                     System.out.println("------------------------------");
                     swimmingPool.lichBoi();
@@ -71,6 +72,6 @@ public class Main {
                     System.out.println("Ko hợp lệ");
                     break;
             }
-        }while (choice != 0);
+        } while (choice != 0);
     }
 }
