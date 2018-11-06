@@ -7,16 +7,18 @@ import java.util.Scanner;
 public class ThuePhong {
     private final static int VILLA = 10, HOUSE = 5;
     private final static int GIUONGVILLA = 1, GIUONGHOUSE = 4;
-    private static int soNgay, tien;
-    private static String kieuThue = "chưa xác định", thoiDiemThue = "chưa xác định";
-
+    public static int soNgay, tien;
+    public static String kieuThue = "chưa xác định", thoiDiemThue = "chưa xác định";
     public static void traCuuCanHo() {
         System.out.println("Loại hình thuê: Villa, mỗi phòng có: " + GIUONGVILLA + " giường, giá tiền: " + VILLA + "$/h");
         System.out.println("Loại hình thuê: House, mỗi phòng có: " + GIUONGHOUSE + " giường, giá tiền: " + HOUSE + "$/h");
     }
 
-    public static int tienThueVilla() {
-        kieuThue = "Villa";
+    public static int tinhTien(String s) {
+        kieuThue = s;
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm dd/MM/yyyy");
+        thoiDiemThue = formatter.format(date);
         Scanner sc = new Scanner(System.in);
         do {
             System.out.print("Nhập số ngày muốn thuê: ");
@@ -24,27 +26,13 @@ public class ThuePhong {
             if (soNgay > 0) break;
             else System.out.println("Ko hợp lệ");
         } while (true);
-        tien = soNgay * VILLA;
-        Date date = new Date();
-        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm dd/MM/yyyy");
-        thoiDiemThue = formatter.format(date);
-        return tien;
-    }
-
-    public static int tienThueHouse() {
-        kieuThue = "House";
-        Scanner sc = new Scanner(System.in);
-        do {
-            System.out.print("Nhập số ngày muốn thuê: ");
-            soNgay = sc.nextInt();
-            if (soNgay > 0) break;
-            else System.out.println("Ko hợp lệ");
-        } while (true);
-        tien = soNgay * HOUSE;
-        Date date = new Date();
-        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm dd/MM/yyyy");
-        thoiDiemThue = formatter.format(date);
-        return tien;
+        if (s.equals("Villa")) {
+            tien = soNgay * VILLA;
+            return tien;
+        }else {
+            tien = soNgay * HOUSE;
+            return tien;
+        }
     }
 
     public static void tuVan() {
@@ -80,4 +68,5 @@ public class ThuePhong {
         System.out.println("Loại hình muốn thuê: " + kieuThue + ", thời gian thuê: " + soNgay + " ngày, số tiền phải trả: " + tien + "$");
         System.out.println("Thời điểm thuê: " + thoiDiemThue);
     }
+
 }

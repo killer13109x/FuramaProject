@@ -4,14 +4,14 @@ import java.util.Scanner;
 
 public class SwimmingPool {
     private final static int OPENTIME = 10;
-    private static String timeSwimming;
-    private static int gio, phut;
+    public static String timeSwimming, lichDiBoi;
 
     public static void displayOpenTime() {
         System.out.println("Hồ bơi mở cửa vào lúc " + OPENTIME + " giờ");
     }
 
-    public static void goSwimming() {
+    public static void datLichBoi() {
+        int gio,phut;
         Scanner sc = new Scanner(System.in);
         String hour = "", minute = "";
         int index = -1;
@@ -52,9 +52,10 @@ public class SwimmingPool {
                 System.out.println("Ko hợp lệ");
             }
         } while (true);
+        lichDiBoi = String.valueOf(gio) + " giờ " + String.valueOf(phut);
     }
 
-    public static void lichBoi() {
-        System.out.println("Lịch đi bơi lúc " + gio + " giờ " + phut + " phút");
+    public static void displayLichBoi() {
+        System.out.println("Lịch đi bơi lúc " + lichDiBoi);
     }
 }

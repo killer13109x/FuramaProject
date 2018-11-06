@@ -3,8 +3,11 @@ package com.company;
 import java.util.Scanner;
 
 public class Customer {
-    private static String name;
-    private static int age;
+    public static String name;
+    public static int age;
+
+    public Customer(){
+    }
 
     public static void inputInfoKH() {
         Scanner sc = new Scanner(System.in);
@@ -17,8 +20,8 @@ public class Customer {
             age = sc.nextInt();
             if (age <= 0) {
                 System.out.println("Lỗi");
-            }
-        } while (age <= 0);
+            }else break;
+        }while(true);
     }
 
     public static void hienThiInfo() {
