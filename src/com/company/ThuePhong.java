@@ -5,13 +5,13 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class ThuePhong {
-    private final static int VILLA = 10, HOUSE = 5;
-    private final static int GIUONGVILLA = 1, GIUONGHOUSE = 4;
+    private final static int GIAVILLA = 10, GIAHOUSE = 5;
     public static int soNgay, tien;
     public static String kieuThue = "chưa xác định", thoiDiemThue = "chưa xác định";
     public static void traCuuCanHo() {
-        System.out.println("Loại hình thuê: Villa, mỗi phòng có: " + GIUONGVILLA + " giường, giá tiền: " + VILLA + "$/h");
-        System.out.println("Loại hình thuê: House, mỗi phòng có: " + GIUONGHOUSE + " giường, giá tiền: " + HOUSE + "$/h");
+        QuanLi quanLi = new QuanLi();
+        System.out.println("Giá tiền thuê: Villa là "+ GIAVILLA + "$/ngày và House là " + GIAHOUSE + "$/ngày");
+        quanLi.hienThiDanhSachKS("all");
     }
 
     public static int tinhTien(String s) {
@@ -27,15 +27,15 @@ public class ThuePhong {
             else System.out.println("Ko hợp lệ");
         } while (true);
         if (s.equals("Villa")) {
-            tien = soNgay * VILLA;
+            tien = soNgay * GIAVILLA;
             return tien;
         }else {
-            tien = soNgay * HOUSE;
+            tien = soNgay * GIAHOUSE;
             return tien;
         }
     }
 
-    public static void tuVan() {
+    public static void tuVanSoNgayCoTheO() {
         Scanner sc = new Scanner(System.in);
         int money;
         do {
@@ -45,21 +45,21 @@ public class ThuePhong {
             else System.out.println("Ko hợp lệ");
         } while (true);
         int timeInVilla, timeInHouse;
-        if (money % VILLA == 0) {
-            timeInVilla = money / VILLA;
+        if (money % GIAVILLA == 0) {
+            timeInVilla = money / GIAVILLA;
             System.out.println("Bạn có thể ở dc trong Villa " + timeInVilla + " ngày");
         } else {
-            timeInVilla = money / VILLA;
-            int tienThua = money % VILLA;
+            timeInVilla = money / GIAVILLA;
+            int tienThua = money % GIAVILLA;
             System.out.println("Bạn có thể ở dc trong Villa " + timeInVilla + " ngày và thừa " + tienThua + "$");
         }
         System.out.println("Hoặc");
-        if (money % HOUSE == 0) {
-            timeInHouse = money / HOUSE;
+        if (money % GIAHOUSE == 0) {
+            timeInHouse = money / GIAHOUSE;
             System.out.println("Bạn có thể ở dc trong House " + timeInHouse + " ngày");
         } else {
-            timeInHouse = money / HOUSE;
-            int tienThua = money % HOUSE;
+            timeInHouse = money / GIAHOUSE;
+            int tienThua = money % GIAHOUSE;
             System.out.println("Bạn có thể ở dc trong House " + timeInHouse + " ngày và thừa " + tienThua + "$");
         }
     }
